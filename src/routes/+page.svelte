@@ -103,6 +103,9 @@
             : "👇 Trier par prix décroissant"}
     </button>
 </div>
+
+<button>Jade</button>
+
 <div class="m-16">
     {#each sorted_products as product}
         <div
