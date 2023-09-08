@@ -35,13 +35,12 @@
             stars: 5,
             blocked: false,
         },
-
         {
             warranty: 5,
-            name: "basket trouée",
-            price: 6012.95,
-            image: "https://media.istockphoto.com/id/1090985526/fr/photo/les-vieilles-chaussures-avec-des-trous-dans-les-orteils-us%C3%A9s.jpg?s=1024x1024&w=is&k=20&c=PtM1fe77gWUNJMyE7aatprTnXhMswcFyq9XkVlYNdZc=",
-            stars: 4,
+            name: "Capote de doigt",
+            price: 2,
+            image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flaboutiqueducool.com%2Fwp-content%2Fuploads%2F2022%2F05%2Fcapote-de-doigt-min.jpg&f=1&nofb=1&ipt=91f087f355e3baaa358efe64728c3ca5e405426e7b1853a1860011c7e2d6b9c2&ipo=images",
+            stars: 2,
             blocked: false,
         },
     ]
