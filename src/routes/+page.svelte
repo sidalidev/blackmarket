@@ -50,7 +50,7 @@
 
     $: sort_products = (products) => {
         let sorted_products = [...products]
-        console.log("initial products", sorted_products)
+        // console.log("initial products", sorted_products)
         /*
          Pseudo code
          Parcours les index de la liste du 2e au dernier:
@@ -70,19 +70,13 @@
                 prevIndex >= 0 &&
                 calc_condition(currentElement, sorted_products[prevIndex])
             ) {
-                console.log(
-                    "currentElement",
-                    currentElement,
-                    "prevIndex",
-                    sorted_products[prevIndex]
-                )
                 sorted_products[prevIndex + 1] = sorted_products[prevIndex]
                 prevIndex = prevIndex - 1
             }
             sorted_products[prevIndex + 1] = currentElement
         }
 
-        console.log("sorted products", sorted_products)
+        // console.log("sorted products", sorted_products)
         return sorted_products
     }
     $: sorted_products = sort_products(products)
@@ -94,11 +88,25 @@
 
         let searched_products = [...sorted_products]
 
-        console.log("searched_products", searched_products)
+        // console.log("searched_products", searched_products)
 
         // pour savoir si machaine.includes(mot) est vrai
 
-        console.log("sorted searched_products", searched_products)
+        // parcourir la liste des produits
+        // pour chaque élément, comparer son nom à search
+        // S'il ne contient pas la chaine, on le retire de la liste
+        // renvoyer la liste à la fino
+        let result = []
+        for (let i = 0; i < sorted_products.length; i++) {
+            console.log("sorted_products[i]", sorted_products[i].name.includes(search))
+            if (sorted_products[i].name.toLowerCase().includes(search.toLowerCase())) {
+                result.push(sorted_products[i])
+                console.log(result)
+            }
+        }
+        searched_products = result
+
+        // console.log("sorted searched_products", result)
         return searched_products
     }
 
