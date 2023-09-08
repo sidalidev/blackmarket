@@ -43,13 +43,13 @@
             stars: 2,
             blocked: false,
         },
-    ]
+    ];
 
-    let order = "desc"
+    let order = "desc";
 
     $: sort_products = (products) => {
-        let sorted_products = [...products]
-        console.log("initial products", sorted_products)
+        let sorted_products = [...products];
+        console.log("initial products", sorted_products);
         /*
          Pseudo code
          Parcours les index de la liste du 2e au dernier:
@@ -59,12 +59,12 @@
          */
 
         for (let idx = 1; idx < sorted_products.length; idx++) {
-            let currentElement = sorted_products[idx]
-            let prevIndex = idx - 1
+            let currentElement = sorted_products[idx];
+            let prevIndex = idx - 1;
 
             let calc_condition = (a, b) => {
-                return order === "desc" ? a.price > b.price : a.price < b.price
-            }
+                return order === "desc" ? a.price > b.price : a.price < b.price;
+            };
             while (
                 prevIndex >= 0 &&
                 calc_condition(currentElement, sorted_products[prevIndex])
@@ -74,17 +74,17 @@
                     currentElement,
                     "prevIndex",
                     sorted_products[prevIndex]
-                )
-                sorted_products[prevIndex + 1] = sorted_products[prevIndex]
-                prevIndex = prevIndex - 1
+                );
+                sorted_products[prevIndex + 1] = sorted_products[prevIndex];
+                prevIndex = prevIndex - 1;
             }
-            sorted_products[prevIndex + 1] = currentElement
+            sorted_products[prevIndex + 1] = currentElement;
         }
 
-        console.log("sorted products", sorted_products)
-        return sorted_products
-    }
-    $: sorted_products = sort_products(products)
+        console.log("sorted products", sorted_products);
+        return sorted_products;
+    };
+    $: sorted_products = sort_products(products);
 </script>
 
 <h1 class="text-center mt-8 text-2xl font-bold">Black Market 🩴</h1>
@@ -95,10 +95,10 @@
     <button
         class="py-2 px-4 bg-cyan-800 text-white rounded-xl shadow-md hover:bg-cyan-600 transition-all hover:translate-x-1 hover:-translate-y-1 animate-bounce"
         on:click={() => {
-			alert("Alerte au gogol les enfants!")
+            order = order === "asc" ? "desc" : "asc";
         }}
     >
-       	Paul OHL
+        Paul OHL
     </button>
 </div>
 
@@ -106,13 +106,19 @@
     <button
         class="py-2 px-4 bg-cyan-800 text-white rounded-xl shadow-md hover:bg-cyan-600 transition-all hover:translate-x-1 hover:-translate-y-1 animate-bounce"
         on:click={() => {
-            order = order === "asc" ? "desc" : "asc"
+            order = order === "asc" ? "desc" : "asc";
         }}
     >
         ️
         {order === "asc"
             ? "👆 Trier par prix croissant"
             : "👇 Trier par prix décroissant"}
+    </button>
+
+    <button
+        class="py-2 px-4 bg-cyan-800 text-white rounded-xl shadow-md hover:bg-cyan-600 transition-all hover:translate-x-1 hover:-translate-y-1 animate-bounce"
+    >
+        Clement
     </button>
 </div>
 
