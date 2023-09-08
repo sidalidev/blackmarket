@@ -123,5 +123,3 @@
         </div>
     {/each}
 </div>
-
-<button>Anthony</button>
