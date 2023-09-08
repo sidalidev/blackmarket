@@ -1,8 +1,9 @@
 <script>
+    let search = ""
     let products = [
         {
             warranty: 12,
-            name: "Tonge petee",
+            name: "Tongue petee",
             price: 331.98,
             image: "https://p0.storage.canalblog.com/06/15/460832/103582547_o.jpg",
             stars: 2,
@@ -85,6 +86,23 @@
         return sorted_products
     }
     $: sorted_products = sort_products(products)
+
+    $: search_products = () => {
+        if (search === "") {
+            return sorted_products
+        }
+
+        let searched_products = [...sorted_products]
+
+        console.log("searched_products", searched_products)
+
+        // pour savoir si machaine.includes(mot) est vrai
+
+        console.log("sorted searched_products", searched_products)
+        return searched_products
+    }
+
+    $: searched_products = search_products()
 </script>
 
 <h1 class="text-center mt-8 text-2xl font-bold">Black Market 🩴</h1>
@@ -102,9 +120,17 @@
             : "👇 Trier par prix décroissant"}
     </button>
 </div>
+<div class="flex justify-center mt-8">
+    <input
+        bind:value={search}
+        type="search"
+        placeholder="Rechercher un produit"
+        class="py-3 px-4 shadow rounded-xl"
+    />
+</div>
 
 <div class="m-16">
-    {#each sorted_products as product}
+    {#each searched_products as product}
         <div
             class="flex items-center p-8 shadow rounded-xl my-5 cursor-pointer"
         >
