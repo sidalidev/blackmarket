@@ -99,6 +99,17 @@
             order = order === "asc" ? "desc" : "asc";
         }}
     >
+        Paul OHL
+    </button>
+</div>
+
+<div class="flex justify-center mt-8">
+    <button
+        class="py-2 px-4 bg-cyan-800 text-white rounded-xl shadow-md hover:bg-cyan-600 transition-all hover:translate-x-1 hover:-translate-y-1 animate-bounce"
+        on:click={() => {
+            order = order === "asc" ? "desc" : "asc";
+        }}
+    >
         ️
         {order === "asc"
             ? "👆 Trier par prix croissant"
@@ -111,6 +122,9 @@
         Clement
     </button>
 </div>
+
+<button>Jade</button>
+
 <div class="m-16">
     {#each sorted_products as product}
         <div
